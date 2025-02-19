@@ -1,0 +1,129 @@
+<nav class="fixed bg-white dark:bg-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-600 w-full z-20">
+  <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Left section -->
+      <div class="flex items-center">
+        <a routerLink="/home" class="flex-shrink-0" aria-label="FreshCart Home">
+          <img src="/images/freshcart-logo.svg" class="h-8" alt="FreshCart Logo" width="120" height="32">
+        </a>
+
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:ml-6 md:flex md:items-center md:space-x-4 rounded">
+          @for (link of navLinks; track link.route) {
+          <a [routerLink]="link.route" routerLinkActive="bg-green-600 rounded-full text-white dark:text-white"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="block px-3 py-2 rounded text-base font-medium transition-colors duration-300 text-gray-700 dark:text-gray-300 hover:bg-green-100 dark:hover:bg-gray-700">
+            {{ link.text }}
+          </a>
+          }
+        </div>
+      </div>
+
+      <!-- Right section -->
+      <div class="flex items-center gap-4">
+
+        <!-- Social Links -->
+        <div class="hidden md:flex items-center space-x-2">
+          @for (social of socialLinks; track social.icon) {
+          <a class="p-2 text-gray-600 hover:text-green-700 dark:text-gray-300 dark:hover:text-green-400"
+            [attr.aria-label]="social.ariaLabel">
+            <i [class]="'fa-brands ' + social.icon"></i>
+          </a>
+          }
+        </div>
+
+        <!-- Theme Toggle -->
+        <button (click)="toggleDarkMode()" type="button"
+          class="p-2 text-gray-600 hover:text-green-700 dark:text-gray-300 dark:hover:text-green-400"
+          [attr.aria-label]="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'">
+          <i class="fa-solid text-lg" [class.fa-sun]="!isDarkMode" [class.fa-moon]="isDarkMode"></i>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button (click)="toggleMobileMenu()"
+          class="md:hidden p-2 rounded-lg text-gray-600 hover:text-green-700 dark:text-gray-400 dark:hover:text-green-400"
+          [attr.aria-expanded]="isMobileMenuOpen" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @if (isMobileMenuOpen) {
+    <div class="md:hidden pt-4 pb-6">
+      <div class="px-2 space-y-4">
+        <!-- Social Links -->
+        <div class="flex justify-center items-center gap-4 text-2xl">
+          @for (social of socialLinks; track social.icon) {
+          <a class="p-2 text-gray-600 hover:text-green-600 dark:text-gray-300 dark:hover:text-green-600"
+            [attr.aria-label]="social.ariaLabel">
+            <i [class]="'fa-brands ' + social.icon"></i>
+          </a>
+          }
+        </div>
+
+        <!-- Navigation Links -->
+        @for (link of navLinks; track link.route) {
+        <a [routerLink]="link.route" (click)="closeMobileMenu()" routerLinkActive="bg-green-600 text-white"
+          class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-green-100 dark:hover:bg-gray-700 rounded transition-colors">
+          {{ link.text }}
+        </a>
+
+
+        <!-- User Dropdown in Mobile View -->
+        <div class="relative dropdown-container">
+
+          @if (isDropdownOpen) {
+          <div
+            class="mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg divide-y divide-gray-200 dark:divide-gray-700">
+            <ul class="py-2">
+              <li>
+                <a class="block px-4 py-2 text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  role="menuitem">
+                  <i class="fa-solid fa-heart mr-2 text-red-500"></i> Your Wish List
+                </a>
+              </li>
+              <li>
+                <a class="block px-4 py-2 text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  role="menuitem">
+                  <i class="fa-solid fa-cog mr-2 text-gray-600 dark:text-gray-300"></i> Settings
+                </a>
+              </li>
+            </ul>
+          </div>
+          }
+        </div>
+        }
+      </div>
+    </div>
+    }
+  </div>
+</nav>

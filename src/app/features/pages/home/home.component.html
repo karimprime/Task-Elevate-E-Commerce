@@ -1,0 +1,18 @@
+<!-- Product Grid -->
+<div class="flex items-center max-w-sm mx-auto pb-10 pt-20">
+  <label for="simple-search" class="sr-only">Search</label>
+  <div class="relative w-full">
+    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <input type="text" id="simple-search" [(ngModel)]="userWord"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+      placeholder="Search branch name..." required />
+  </div>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 w-[90%] mx-auto mb-12 ">
+  @for (product of allProducts | search:userWord ; track $index) {
+  <app-product-card [productInfo]="product"></app-product-card>
+  }
+</div>
