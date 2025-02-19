@@ -53,34 +53,44 @@ https://fakestoreapi.com/products
 ✔️ Implement product detail pages with **dynamic routing**.  
 ✔️ Ensure a fully **responsive UI** using Tailwind CSS.  
 ✔️ Implement **search and loading states**.  
+✔️ Implement **Dynamic Routing**.  
 ✔️ Maintain **clean, reusable, and structured** code.  
 ✔️ Provide **clear documentation** (this README!).
 
 ## 📂 Project Structure
 ```
 Task-Elevate-E-Commerce/
-|──public/
+│── public/
 │── src/
 │   ├── app/
-|   |   |── core/
-│   │   |   |── services/
-|   |   |      |── flowbite/
-|   |   |      |── e-commerce/
-|   |   |      |  |── products/
-|   |   |      |── mode/
-│   │   |   |──interceptors
-│   │   |   |──Environment
+│   │   ├── core/
+│   │   │   ├── services/
+│   │   │   │   ├── flowbite/
+│   │   │   │   ├── e-commerce/
+│   │   │   │   │   ├── products/
+│   │   │   │   ├── mode/
+│   │   │   ├── interceptors/
+│   │   │   │   ├── loading/
+│   │   │   │   ├── success/
+│   │   │   │   ├── errors/
+│   │   │   ├── Environment/
 │   │   ├── features/
-│   │   |   |──layout/
-│   │   |   |──pages/
-│   │   ├── services/
-│   ├── assets/
+│   │   │   ├── layout/
+│   │   │   │   ├── navbar/
+│   │   │   │   ├── footer/
+│   │   │   │   ├── product-card/
+│   │   │   ├── pages/
+│   │   │   │   ├── home/
+│   │   │   │   ├── product-details/
+│   │   ├── shared/
+│   │   │   ├── interface/
+│   │   │   ├── pipes/
 │   ├── styles/
+│   ├── appConfig/
 │── angular.json
 │── package.json
 │── README.md
 ```
-
 
 ## 🤝 Contributing
 Want to improve the project? Feel free to fork the repo, make changes, and submit a pull request.
@@ -92,4 +102,3 @@ For any questions, reach out to me at:
 ---
 🎯 Built with passion by **Karim Ashraf** 🚀
 ```
-
