@@ -1,104 +1,64 @@
-```markdown
-# Task Elevate - E-Commerce
 
-## 🚀 Project Description
-Task Elevate is a **fully responsive E-Commerce products gallery** that fetches product details from the **Fake Store API** and provides a smooth user experience with dynamic navigation and modern UI design. Built with **Angular 19**, Tailwind CSS, and Flowbite, the application ensures a high-performance, structured, and visually appealing shopping experience.
+# ECommerceApp
 
-## 🎯 Features
-- **Products Listing Page**: Fetch and display products with their **name, image, price, and short description**.
-- **Product Details Page**: View a product's **full details, including name, image, description, price, and category**.
-- **Dynamic Routing**: Click on a product to navigate to its details page.
-- **Search Functionality**: Easily find products by name.
-- **Loading Indicators**: Smooth UX with loading states while fetching data.
-- **Modern UI**: Styled using **Tailwind CSS & Flowbite** for a clean and professional look.
-- **Fully Responsive**: Works seamlessly across desktop, tablet, and mobile devices.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.0.
 
-## 📸 Live Demo
-🔗 [Task Elevate E-Commerce](https://task-elevate-e-commerce.vercel.app/#/home)
+## Development server
 
-## 🛠️ Tech Stack
-- **Frontend**: Angular 19, TypeScript
-- **Styling**: Tailwind CSS, Flowbite
-- **API**: Fake Store API
-- **Deployment**: Vercel
+To start a local development server, run:
 
-## ⚙️ Installation & Setup
-Follow these steps to run the project locally:
-
-### 1️⃣ Clone the Repository
-```sh
-git clone https://github.com/karimprime/Task-Elevate-E-Commerce.git
-cd Task-Elevate-E-Commerce
-```
-
-### 2️⃣ Install Dependencies
-```sh
-npm install
-```
-
-### 3️⃣ Start the Development Server
-```sh
+```bash
 ng serve
 ```
-Access the app at: `http://localhost:4200/`
 
-## 📝 API Integration
-The project fetches product data from the **Fake Store API**:
-```
-https://fakestoreapi.com/products
-```
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## ✅ Evaluation Criteria (Completed)
-✔️ Fetch and display products dynamically.  
-✔️ Implement product detail pages with **dynamic routing**.  
-✔️ Ensure a fully **responsive UI** using Tailwind CSS.  
-✔️ Implement **search and loading states**.  
-✔️ Implement **Dynamic Routing**.  
-✔️ Maintain **clean, reusable, and structured** code.  
-✔️ Provide **clear documentation** (this README!).
+## Code scaffolding
 
-## 📂 Project Structure
-```
-Task-Elevate-E-Commerce/
-│── public/
-│── src/
-│   ├── app/
-│   │   ├── core/
-│   │   │   ├── services/
-│   │   │   │   ├── flowbite/
-│   │   │   │   ├── e-commerce/
-│   │   │   │   │   ├── products/
-│   │   │   │   ├── mode/
-│   │   │   ├── interceptors/
-│   │   │   │   ├── loading/
-│   │   │   │   ├── success/
-│   │   │   │   ├── errors/
-│   │   │   ├── Environment/
-│   │   ├── features/
-│   │   │   ├── layout/
-│   │   │   │   ├── navbar/
-│   │   │   │   ├── footer/
-│   │   │   │   ├── product-card/
-│   │   │   ├── pages/
-│   │   │   │   ├── home/
-│   │   │   │   ├── product-details/
-│   │   ├── shared/
-│   │   │   ├── interface/
-│   │   │   ├── pipes/
-│   ├── styles/
-│   ├── appConfig/
-│── angular.json
-│── package.json
-│── README.md
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+
+```bash
+ng generate component component-name
 ```
 
-## 🤝 Contributing
-Want to improve the project? Feel free to fork the repo, make changes, and submit a pull request.
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-## 📩 Contact
-For any questions, reach out to me at: 
-📧 **karimashraf000@gmail.com**
-
----
-🎯 Built with passion by **Karim Ashraf** 🚀
+```bash
+ng generate --help
 ```
+
+## Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+=======
+# E-Commerce-App
+Framework Angular ( SPA , Router , Services , Guards , and auth-System , API )
+>>>>>>> 1bf4f359f96a33fd90d0cb7b52ba8e50fc17406a
