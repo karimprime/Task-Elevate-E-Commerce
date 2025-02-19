@@ -1,14 +1,11 @@
-
-import { Component, inject, HostListener, OnDestroy } from '@angular/core';
+import { Component, inject, HostListener, signal, WritableSignal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { ModeService } from '../../../core/services/mode/mode.service';
 import { CommonModule } from '@angular/common';
-import { Subscription } from 'rxjs';
 import { navLink, socialLink } from '../../../shared/interface/nav-link';
 
 @Component({
   selector: 'app-navbar',
-  standalone: true,
   imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
@@ -17,10 +14,9 @@ export class NavbarComponent {
   private router = inject(Router);
   private modeService = inject(ModeService);
 
-
-  isDarkMode = this.modeService.isDarkMode();
-  isMobileMenuOpen = false;
-  isDropdownOpen = false;
+  isDarkMode = signal(this.modeService.isDarkMode());
+  isMobileMenuOpen: WritableSignal<boolean> = signal(false);
+  isDropdownOpen: WritableSignal<boolean> = signal(false);
 
   socialLinks: socialLink[] = [
     { icon: 'fa-facebook', ariaLabel: 'Facebook' },
@@ -35,33 +31,27 @@ export class NavbarComponent {
     { route: '/home', text: 'Home' },
   ];
 
-  constructor() {
-  }
-
   toggleDarkMode(): void {
     this.modeService.toggleDarkMode();
-    this.isDarkMode = !this.isDarkMode;
+    this.isDarkMode.set(!this.isDarkMode());
   }
 
   toggleMobileMenu(): void {
-    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    this.isMobileMenuOpen.set(!this.isMobileMenuOpen());
   }
 
   closeMobileMenu(): void {
-    this.isMobileMenuOpen = false;
+    this.isMobileMenuOpen.set(false);
   }
 
   toggleDropdown(): void {
-    this.isDropdownOpen = !this.isDropdownOpen;
+    this.isDropdownOpen.set(!this.isDropdownOpen());
   }
-
-
 
   @HostListener('document:click', ['$event'])
   onClickOutside(event: Event): void {
     if (!(event.target as HTMLElement).closest('.dropdown-container')) {
-      this.isDropdownOpen = false;
+      this.isDropdownOpen.set(false);
     }
   }
-
 }

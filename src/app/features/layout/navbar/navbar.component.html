@@ -2,11 +2,18 @@
   <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <!-- Left section -->
-      <div class="flex items-center">
-        <a routerLink="/home" class="flex-shrink-0" aria-label="FreshCart Home">
-          <img src="/images/freshcart-logo.svg" class="h-8" alt="FreshCart Logo" width="120" height="32">
+      <div class="flex items-center justify-center">
+        <a routerLink="/home" class="flex-shrink-0 group transition-all duration-300 ease-in-out"
+          aria-label="FreshCart Home">
+          <div class="flex items-center justify-center p-2 rounded-lg hover:scale-105 transform transition">
+            <img src="/images/loading-3-shopping-cart.svg"
+              class="w-[50px] group-hover:rotate-12 transition-transform duration-300" alt="FreshCart Logo" />
+            <span class="text-2xl font-extrabold dark:text-white tracking-wide
+                      drop-shadow-md">
+              FreshCart
+            </span>
+          </div>
         </a>
-
 
         <!-- Desktop Navigation -->
         <div class="hidden md:ml-6 md:flex md:items-center md:space-x-4 rounded">
@@ -36,48 +43,20 @@
         <!-- Theme Toggle -->
         <button (click)="toggleDarkMode()" type="button"
           class="p-2 text-gray-600 hover:text-green-700 dark:text-gray-300 dark:hover:text-green-400"
-          [attr.aria-label]="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'">
-          <i class="fa-solid text-lg" [class.fa-sun]="!isDarkMode" [class.fa-moon]="isDarkMode"></i>
+          [attr.aria-label]="isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'">
+          <i class="fa-solid text-lg" [class.fa-sun]="!isDarkMode()" [class.fa-moon]="isDarkMode()"></i>
         </button>
 
         <!-- Mobile Menu Button -->
         <button (click)="toggleMobileMenu()"
           class="md:hidden p-2 rounded-lg text-gray-600 hover:text-green-700 dark:text-gray-400 dark:hover:text-green-400"
-          [attr.aria-expanded]="isMobileMenuOpen" aria-label="Toggle navigation menu">
+          [attr.aria-expanded]="isMobileMenuOpen()" aria-label="Toggle navigation menu">
           <i class="fa-solid fa-bars"></i>
         </button>
       </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @if (isMobileMenuOpen) {
+    @if (isMobileMenuOpen()) {
     <div class="md:hidden pt-4 pb-6">
       <div class="px-2 space-y-4">
         <!-- Social Links -->
@@ -101,7 +80,7 @@
         <!-- User Dropdown in Mobile View -->
         <div class="relative dropdown-container">
 
-          @if (isDropdownOpen) {
+          @if (isDropdownOpen()) {
           <div
             class="mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg divide-y divide-gray-200 dark:divide-gray-700">
             <ul class="py-2">

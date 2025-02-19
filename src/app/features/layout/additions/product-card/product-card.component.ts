@@ -9,7 +9,6 @@ import { IProduct } from '../../../../shared/interface/products';
   styleUrl: './product-card.component.scss'
 })
 export class ProductCardComponent {
-  @Input()
-  productInfo !: IProduct;
+  @Input() productInfo !: IProduct;
 
 }

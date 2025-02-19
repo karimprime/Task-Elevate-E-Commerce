@@ -1,15 +1,12 @@
 <app-navbar />
 
-<div class="min-h-[80vh]">
+<div class="min-h-[100vh]">
   <router-outlet />
 </div>
 
-<!-- Modern, Clean, and Responsive Loading Screen -->
 <ngx-spinner bdColor="rgba(0, 0, 0, 0.9)" size="large" type="ball-scale-multiple" color="#4ade80" [fullScreen]="true">
   <div class="flex flex-col items-center justify-center h-screen animate-fade-in">
-    <!-- Scaling Logo Animation -->
     <img src="/images/freshcart-logo.svg" class="h-20 md:h-24 lg:h-28 animate-scale" alt="FreshCart Logo" />
-    <!-- Loading Text -->
     <p class="text-white mt-4 text-lg md:text-xl lg:text-2xl font-semibold tracking-widest animate-pulse">
       Loading, please wait...
     </p>

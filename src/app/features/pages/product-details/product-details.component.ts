@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal, WritableSignal, effect } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../../../core/services/ecommerce/products/products.service';
 import { IProduct } from '../../../shared/interface/products';
@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-details',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss']
@@ -15,25 +14,39 @@ export class ProductDetailsComponent implements OnInit {
   private activatedRoute = inject(ActivatedRoute);
   private productsService = inject(ProductsService);
 
-  productid: string | null = null;
-  pSpec: IProduct | null = null;
-  loading = true;
-  errorMessage = '';
+  productid: WritableSignal<string | null> = signal(null);
+  pSpec: WritableSignal<IProduct | null> = signal(null);
+  loading: WritableSignal<boolean> = signal(true);
+  errorMessage: WritableSignal<string> = signal('');
+
+  constructor() {
+    effect(() => {
+      const id = this.productid();
+      if (id) {
+        this.getProductDetails(id);
+      }
+    });
+  }
 
   ngOnInit() {
+    this.getProduct();
+  }
+
+  getProduct() {
     this.activatedRoute.paramMap.subscribe(params => {
-      this.productid = params.get('id');
-      if (this.productid) {
-        this.getProductDetails(this.productid);
+      const id = params.get('id');
+      if (id) {
+        this.productid.set(id);
       }
     });
   }
 
   getProductDetails(id: string) {
+    this.loading.set(true);
     this.productsService.getSpecProducts(id).subscribe({
       next: (res) => {
-        this.pSpec = res;
-        this.loading = false;
+        this.pSpec.set(res);
+        this.loading.set(false);
       }
     });
   }
