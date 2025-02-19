@@ -97,8 +97,3 @@ Want to improve the project? Feel free to fork the repo, make changes, and submi
 ## 📩 Contact
 For any questions, reach out to me at: 
 📧 **karimashraf000@gmail.com**
-
----
-🎯 Built with passion by **Karim Ashraf** 🚀
-```
-
